@@ -1,0 +1,54 @@
+experiment_name: titanic_classification
+seed: 42
+
+data:
+  source: seaborn
+  dataset: titanic
+  target: survived
+  test_size: 0.2
+  drop_columns:
+    - alive
+    - class
+    - who
+    - adult_male
+    - deck
+    - embark_town
+
+preprocessing:
+  numeric_features:
+    - age
+    - fare
+    - sibsp
+    - parch
+    - pclass
+  categorical_features:
+    - sex
+    - embarked
+    - alone
+  numeric_imputer: median
+  categorical_imputer: most_frequent
+  scale_numeric: true
+
+model:
+  baseline:
+    type: logistic_regression
+    C: 1.0
+    max_iter: 1000
+    class_weight: null
+    solver: lbfgs
+  experiment:
+    type: logistic_regression
+    C: 1.0
+    max_iter: 1000
+    class_weight: balanced
+    solver: lbfgs
+
+metrics:
+  - accuracy
+  - precision
+  - recall
+  - f1
+
+output:
+  figures_dir: outputs/figures
+  logs_dir: outputs/logs
