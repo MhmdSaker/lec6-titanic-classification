@@ -1,5 +1,7 @@
 # Lecture 6 Assignment — Titanic Classification
 
+**Repo:** https://github.com/MhmdSaker/lec6-titanic-classification
+
 Evaluation, experimentation, and AI software-design patterns applied to the Titanic survival classification task.
 
 ## Quick start
